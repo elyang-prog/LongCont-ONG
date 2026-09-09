@@ -35,7 +35,7 @@ document.addEventListener('keydown', (event) => {
   cerrar(navegacion);
   cerrar(busqueda);
 });
-
+//comentario
 document.getElementById('form-busqueda').addEventListener('submit', (event) => {
   event.preventDefault();
   const termino = campoBusqueda.value.trim();
