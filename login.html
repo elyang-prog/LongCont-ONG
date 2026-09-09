@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <script src="login.js" defer></script>
+  <title>Iniciar sesión | LongCont</title>
+</head>
+<body>
+  <header class="login-nav">
+    <a class="login-brand" href="./index.html"><img src="./image/logolcont.jpg" alt=""><span>LongCont</span></a>
+    <a class="volver-inicio" href="./index.html">← Volver al inicio</a>
+  </header>
+
+  <main class="login-main">
+    <section class="login-card" aria-labelledby="login-titulo">
+      <div class="login-cabecera">
+        <span class="barra-acento" aria-hidden="true"></span>
+        <h1 id="login-titulo">Iniciar Sesión</h1>
+        <p>Accedé a la plataforma de difusión cultural LongCont.</p>
+      </div>
+
+      <form id="form-login" novalidate>
+        <div class="campo-login">
+          <label for="correo-login">Correo electrónico</label>
+          <input id="correo-login" name="email" type="email" autocomplete="email" placeholder="ejemplo@longcont.org" required>
+        </div>
+        <div class="campo-login">
+          <label for="contrasena-login">Contraseña</label>
+          <div class="campo-contrasena">
+            <input id="contrasena-login" name="password" type="password" autocomplete="current-password" placeholder="Ingresá tu contraseña" minlength="6" required>
+            <button id="mostrar-contrasena" type="button" aria-label="Mostrar contraseña" aria-pressed="false"><img src="./image/figma-eye.svg" alt=""></button>
+          </div>
+        </div>
+        <div class="opciones-login">
+          <label class="recordarme"><input type="checkbox" name="remember"> <span>Recordarme</span></label>
+          <button class="enlace-login" id="olvido-contrasena" type="button">¿Olvidaste tu contraseña?</button>
+        </div>
+        <p id="mensaje-login" class="mensaje-login" role="status" aria-live="polite"></p>
+        <button class="btn-ingresar" type="submit">Iniciar Sesión</button>
+      </form>
+
+      <div class="separador"><span></span><p>o continuar con</p><span></span></div>
+      <button id="login-google" class="btn-google" type="button"><img src="./image/figma-google.svg" alt="">Continuar con Google</button>
+      <p class="registro-login">¿No tenés cuenta? <a href="./registro.html">Registrate aquí</a></p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.registro-main { padding-top: 64px; padding-bottom: 64px; }
+.registro-card { max-width: 500px; }
+.aceptar-terminos { display: flex; align-items: flex-start; gap: 10px; margin: 2px 0 16px; color: #1f2937; font-size: 13px; line-height: 1.45; cursor: pointer; }
+.aceptar-terminos > input { position: absolute; opacity: 0; }
+.check-personalizado { width: 18px; height: 18px; flex: 0 0 18px; display: grid; place-items: center; margin-top: 1px; border: 1.5px solid #e5e7eb; border-radius: 4px; }
+.check-personalizado img { display: none; width: 10px; height: 10px; }
+.aceptar-terminos input:checked + .check-personalizado { border-color: #c22026; background: #c22026; }
+.aceptar-terminos input:checked + .check-personalizado img { display: block; }
+.aceptar-terminos input:focus-visible + .check-personalizado { outline: 3px solid #fecaca; outline-offset: 2px; }
+.aceptar-terminos a { color: #c22026; font-weight: 700; text-decoration: none; }

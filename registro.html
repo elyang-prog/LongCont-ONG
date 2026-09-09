@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="registro.css">
+  <script src="registro.js" defer></script>
+  <title>Crear cuenta | LongCont</title>
+</head>
+<body>
+  <header class="login-nav">
+    <a class="login-brand" href="./index.html"><img src="./image/logolcont.jpg" alt=""><span>LongCont</span></a>
+    <a class="volver-inicio" href="./login.html">← Iniciar sesión</a>
+  </header>
+
+  <main class="login-main registro-main">
+    <section class="login-card registro-card" aria-labelledby="registro-titulo">
+      <div class="login-cabecera">
+        <span class="barra-acento" aria-hidden="true"></span>
+        <h1 id="registro-titulo">Crear Cuenta</h1>
+        <p>Unite a LongCont y formá parte de nuestra comunidad académica.</p>
+      </div>
+
+      <form id="form-registro" novalidate>
+        <div class="campo-login"><label for="nombre-registro">Nombre completo</label><input id="nombre-registro" name="name" type="text" autocomplete="name" placeholder="Nombre completo" minlength="3" required></div>
+        <div class="campo-login"><label for="correo-registro">Correo electrónico</label><input id="correo-registro" name="email" type="email" autocomplete="email" placeholder="ejemplo@longcont.org" required></div>
+        <div class="campo-login"><label for="contrasena-registro">Contraseña</label><div class="campo-contrasena"><input id="contrasena-registro" name="password" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres" minlength="8" required><button class="mostrar-registro" type="button" aria-label="Mostrar contraseña" aria-pressed="false"><img src="./image/figma-reg-eye.svg" alt=""></button></div></div>
+        <div class="campo-login"><label for="confirmar-registro">Confirmar contraseña</label><div class="campo-contrasena"><input id="confirmar-registro" name="password-confirmation" type="password" autocomplete="new-password" placeholder="Confirmá tu contraseña" minlength="8" required><button class="mostrar-registro" type="button" aria-label="Mostrar contraseña" aria-pressed="false"><img src="./image/figma-reg-eye.svg" alt=""></button></div></div>
+        <label class="aceptar-terminos"><input id="terminos-registro" type="checkbox" required><span class="check-personalizado"><img src="./image/figma-reg-check.svg" alt=""></span><span>Acepto los <a href="#">términos y condiciones</a> de uso y la política de privacidad.</span></label>
+        <p id="mensaje-registro" class="mensaje-login" role="status" aria-live="polite"></p>
+        <button class="btn-ingresar" type="submit">Registrarse</button>
+      </form>
+      <div class="separador"><span></span><p>o continuar con</p><span></span></div>
+      <button id="registro-google" class="btn-google" type="button"><img src="./image/figma-reg-google.svg" alt="">Registrarse con Google</button>
+      <p class="registro-login">¿Ya tenés cuenta? <a href="./login.html">Iniciá sesión aquí</a></p>
+    </section>
+  </main>
+</body>
+</html>
