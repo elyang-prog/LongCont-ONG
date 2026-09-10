@@ -50,8 +50,34 @@ formRegistro.addEventListener('submit', async (event) => {
     mensajeRegistro.textContent = 'Necesitás aceptar los términos y condiciones para continuar.';
     return;
   }
-  const usuarios = JSON.parse(localStorage.getItem('longcont_usuarios') || '[]');
   const email = correoRegistro.value.trim().toLowerCase();
+  const { data, error } = await longcontSupabase.auth.signUp({
+    email,
+    password: contrasenaRegistro.value,
+    options: { data: { full_name: nombreRegistro.value.trim(), username } }
+  });
+  if (error) {
+    mensajeRegistro.textContent = error.message;
+    return;
+  }
+  if (data.user) {
+    const usuarios = JSON.parse(localStorage.getItem('longcont_usuarios') || '[]');
+    if (!usuarios.some((usuario) => usuario.email === email)) {
+      usuarios.push({ nombre: nombreRegistro.value.trim(), username, email, password: await cifrarContrasena(contrasenaRegistro.value) });
+      localStorage.setItem('longcont_usuarios', JSON.stringify(usuarios));
+    }
+    if (data.session) {
+      guardarSesionSupabase(data.user);
+      mensajeRegistro.classList.add('exito');
+      mensajeRegistro.textContent = 'Cuenta creada. Redirigiendo al panel…';
+      window.setTimeout(() => { window.location.href = './panel.html'; }, 600);
+    } else {
+      mensajeRegistro.classList.add('exito');
+      mensajeRegistro.textContent = 'Cuenta creada. Revisá tu correo y confirmá la cuenta para iniciar sesión desde cualquier dispositivo.';
+    }
+    return;
+  }
+  const usuarios = JSON.parse(localStorage.getItem('longcont_usuarios') || '[]');
   if (usuarios.some((usuario) => usuario.email === email)) {
     mensajeRegistro.textContent = 'Ya existe una cuenta con ese correo. Iniciá sesión o usá otro email.';
     return;

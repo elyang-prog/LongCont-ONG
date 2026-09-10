@@ -35,12 +35,24 @@ formLogin.addEventListener('submit', async (event) => {
     mensajeLogin.textContent = 'Ingresá tu correo o nombre de usuario y una contraseña de al menos 6 caracteres.';
     return;
   }
-  const usuarios = JSON.parse(localStorage.getItem('longcont_usuarios') || '[]');
   const identificador = identificadorLogin.value.trim().toLowerCase();
+  if (!identificador.includes('@')) {
+    mensajeLogin.textContent = 'Para iniciar sesión desde cualquier dispositivo, ingresá el correo electrónico de tu cuenta.';
+    return;
+  }
+  const { data, error } = await longcontSupabase.auth.signInWithPassword({ email: identificador, password: contrasenaLogin.value });
+  if (!error && data.user) {
+    guardarSesionSupabase(data.user);
+    mensajeLogin.classList.add('exito');
+    mensajeLogin.textContent = 'Sesión iniciada. Redirigiendo al panel…';
+    window.setTimeout(() => { window.location.href = './panel.html'; }, 600);
+    return;
+  }
+  const usuarios = JSON.parse(localStorage.getItem('longcont_usuarios') || '[]');
   const usuario = usuarios.find((item) => item.email === identificador || item.username === identificador);
   const contrasenaCifrada = await cifrarContrasena(contrasenaLogin.value);
   if (!usuario || usuario.password !== contrasenaCifrada) {
-    mensajeLogin.textContent = 'El correo, usuario o contraseña no coinciden. Revisá los datos con los que creaste tu cuenta.';
+    mensajeLogin.textContent = error?.message === 'Email not confirmed' ? 'Confirmá el correo que Supabase te envió antes de iniciar sesión.' : 'El correo o contraseña no coinciden. Revisá los datos con los que creaste tu cuenta.';
     return;
   }
   localStorage.setItem('longcont_sesion', JSON.stringify({ nombre: usuario.nombre, username: usuario.username, email: usuario.email }));
