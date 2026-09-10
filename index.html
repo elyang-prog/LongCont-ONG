@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js?v=2" defer></script>
+    <script src="publicaciones-inicio.js" defer></script>
     <script src="script.js" defer></script>
     <title> LongCont </title>
 </head>
@@ -12,65 +14,63 @@
 <header>
     <nav class="barra-principal" aria-label="Navegación principal">
         <a class="nav-logo" href="./index.html"><img src="./image/logolcont.jpg" alt=""><span>LongCont</span></a>
-        <div class="nav-centro">
-            <button class="nav-buscar" id="abrir-busqueda" type="button" aria-haspopup="dialog" aria-controls="overlay-busqueda"><span aria-hidden="true">⌕</span>Buscar...</button>
-            <a class="nav-boton" href="./login.html">Iniciar Sesión</a>
-        </div>
         <button class="nav-menu" id="abrir-navegacion" type="button" aria-haspopup="dialog" aria-controls="overlay-navegacion" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </nav>
 
     <section id="overlay-navegacion" class="overlay-navegacion oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-navegacion">
       <div class="nav-pagina-barra">
         <a class="nav-logo" href="./index.html"><img src="./image/logolcont.jpg" alt=""><span>LongCont</span></a>
-        <div class="nav-pagina-acciones"><button class="nav-buscar" id="abrir-busqueda-desde-menu" type="button"><span aria-hidden="true">⌕</span>Buscar...</button><a class="nav-boton" href="./login.html">Iniciar Sesión</a></div>
+        <div class="nav-pagina-acciones" aria-label="Accesos de cuenta">
+          <button class="nav-buscar" id="abrir-busqueda-desde-menu" type="button"><span aria-hidden="true">⌕</span>Buscar</button>
+          <a class="nav-boton" href="./login.html">Iniciar sesión</a>
+        </div>
         <button id="cerrar-navegacion" class="boton-cerrar" type="button" aria-label="Cerrar navegación">×</button>
       </div>
       <div class="navegacion-contenido">
-        <div class="navegacion-cabecera"><h2 id="titulo-navegacion">Navegación</h2><p>Explora las secciones principales de LongCont. Cada categoría es clickeable y cuenta con un estado de hover visual.</p></div>
+        <div class="navegacion-presentacion">
+          <div class="navegacion-cabecera"><h2 id="titulo-navegacion">Navegación</h2><p>Explora las secciones principales de LongCont. Cada categoría es clickeable y cuenta con un estado de hover visual.</p></div>
+          <figure class="navegacion-imagen-cultural">
+            <img src="./image/navegacion-cultural.png" alt="Jardín tradicional chino con pabellones y lago">
+            <figcaption>Cultura china</figcaption>
+          </figure>
+        </div>
         <div class="selector-idioma"><span>IDIOMA</span><div><button class="idioma-activo" type="button">Español</button><span>•</span><button type="button">中文</button><span>•</span><button type="button">English</button></div></div>
         <div class="navegacion-grid">
         <!-- NOVEDADES -->
         <div class="columna-navegacion">
-        <h3>Novedades</h3>
+        <a class="titulo-navegacion" href="./novedades.html">Novedades</a>
         <ul>
-            <li><a href="#noticia">Noticia <span>›</span></a></li>
-            <li><a href="#economia">Economía <span>›</span></a></li>
-            <li><a href="#educacion">Educación <span>›</span></a></li>
-            <li><a href="#salud">Salud <span>›</span></a></li>
+            <li><a href="./novedades.html#novedades-recientes">Recientes <span>›</span></a></li>
+            <li><a href="./novedades.html#novedades-antiguas">Antiguas <span>›</span></a></li>
         </ul>
         </div>
 
         <!-- INFORMACIÓN -->
+        <div class="columna-navegacion columna-informacion">
+        <a class="titulo-navegacion" href="./informacion/index.html">Información</a>
+        <div class="subgrupos-informacion">
+          <details><summary>China Tradicional <span aria-hidden="true">⌄</span></summary><ul><li><a href="#historia">Historia <span>›</span></a></li><li><a href="#cultura">Cultura <span>›</span></a></li><li><a href="#festivales">Festivales <span>›</span></a></li></ul></details>
+          <details><summary>China Moderna <span aria-hidden="true">⌄</span></summary><ul><li><a href="#info-economia">Economía <span>›</span></a></li><li><a href="#gastronomia">Gastronomía <span>›</span></a></li><li><a href="#turismo">Turismo <span>›</span></a></li></ul></details>
+          <details><summary>Culturas Populares <span aria-hidden="true">⌄</span></summary><ul><li><a href="#celebridades">Celebridades <span>›</span></a></li><li><a href="#programas">Programas <span>›</span></a></li><li><a href="#cine-tv">Cine y TV <span>›</span></a></li></ul></details>
+        </div>
+        </div>
+
+        <!-- PARTICIPACIÓN -->
         <div class="columna-navegacion">
-        <h3>Información</h3>
+        <a class="titulo-navegacion" href="./participacion.html">Participación</a>
         <ul>
-            <li><a href="#historia">Historia <span>›</span></a></li>
-            <li><a href="#cultura">Cultura <span>›</span></a></li>
-            <li><a href="#festivales">Festivales <span>›</span></a></li>
-            <li><a href="#info-economia">Economía <span>›</span></a></li>
-            <li><a href="#gastronomia">Gastronomía <span>›</span></a></li>
-            <li><a href="#turismo">Turismo <span>›</span></a></li>
-            <li><a href="#celebridades">Celebridades <span>›</span></a></li>
-            <li><a href="#programas">Programas <span>›</span></a></li>
-            <li><a href="#cine-tv">Cine y TV <span>›</span></a></li>
+            <li><a href="#voluntariado">Voluntariado <span>›</span></a></li>
+            <li><a href="#como-participar">Cómo participar <span>›</span></a></li>
         </ul>
         </div>
 
         <!-- SOBRE NOSOTROS -->
         <div class="columna-navegacion">
-        <h3>Sobre Nosotros</h3>
+        <a class="titulo-navegacion" href="./sobre-nosotros.html">Sobre nosotros</a>
         <ul>
-            <li><a href="#sobrenosotros">Quiénes Somos <span>›</span></a></li>
-        </ul>
-        </div>
-
-        <!-- PARTICIPACIÓN -->
-        <div class="columna-navegacion">
-        <h3>Participación</h3>
-        <ul>
-            <li><a href="#voluntariado">Voluntariado <span>›</span></a></li>
-            <li><a href="#departamentos">Nuestros Departamentos <span>›</span></a></li>
-            <li><a href="#origen">Origen de la ONG <span>›</span></a></li>
+            <li><a href="./sobre-nosotros.html">Quiénes somos <span>›</span></a></li>
+            <li><a href="./sobre-nosotros.html#origen-ong">Origen de la ONG <span>›</span></a></li>
+            <li><a href="./sobre-nosotros.html#departamentos">Nuestros Departamentos <span>›</span></a></li>
         </ul>
         </div>
         </div>
@@ -81,7 +81,7 @@
       <div class="modal-busqueda">
         <div class="busqueda-cabecera"><div><h2 id="titulo-busqueda">Búsqueda</h2><p>Explora cultura china en LongCont</p></div><button id="cerrar-busqueda" class="boton-cerrar" type="button" aria-label="Cerrar búsqueda">×</button></div>
         <form class="barra-busqueda" id="form-busqueda"><label class="sr-only" for="campo-busqueda">Buscar en LongCont</label><span aria-hidden="true">⌕</span><input id="campo-busqueda" type="search" placeholder="Buscar en LongCont..."><button type="submit">Buscar</button></form>
-        <div class="sugerencias"><h3>Sugerencias</h3><a href="#novedades"><span>✦</span>Festival del Año Nuevo Chino <b>›</b></a><a href="#informacion"><span>◫</span>Clases de Mandarín <b>›</b></a><a href="#info"><span>⌂</span>Historia de la Dinastía Tang <b>›</b></a><a href="#participacion"><span>✎</span>Taller de Caligrafía <b>›</b></a><a href="#info"><span>⌁</span>Gastronomía China <b>›</b></a></div>
+        <div class="sugerencias"><h3>Sugerencias</h3><a href="./novedades.html"><span>✦</span>Ver Novedades <b>›</b></a><a href="./informacion/index.html"><span>◫</span>Explorar Información <b>›</b></a><a href="#info"><span>⌂</span>Historia de la Dinastía Tang <b>›</b></a><a href="./participacion.html"><span>✎</span>Sumate a Participación <b>›</b></a><a href="#info"><span>⌁</span>Gastronomía China <b>›</b></a></div>
         <p class="busqueda-pie">Presiona Enter para buscar</p>
       </div>
     </section>
@@ -104,8 +104,8 @@
             <h1>LongCont — Conecta con la esencia de China</h1>
             <p class="hero-texto">Explora tradiciones, saberes y paisajes. Participa en eventos, clases y encuentros culturales. Únete a una comunidad que conecta con la esencia cultural china en el continente.</p>
             <div class="hero-botones">
-            <button class="btn-primario">Explorar Cultura →</button>
-            <button class="btn-secundario">Ver próximos eventos</button>
+            <a class="btn-primario" href="#info">Explorar Cultura <span aria-hidden="true">→</span></a>
+            <a class="btn-secundario" href="#participacion">Ver próximos eventos</a>
             </div>
             <p class="hero-pie">Novedades, eventos y comunidad</p>
         </div>
@@ -118,36 +118,47 @@
             <p>Actualidad de China, organizada por tema para encontrar cada noticia con facilidad.</p>
         </div>
 
-        <div class="nov-contenedor">
+        <div class="nov-grupo" id="novedades-recientes">
+          <h3>Novedades recientes</h3>
+          <div class="nov-carrusel" aria-label="Carrusel de novedades recientes">
+          <button class="nov-control nov-control-anterior" type="button" aria-label="Ver novedades anteriores">‹</button>
+          <div class="nov-ventana" tabindex="0" aria-label="Deslizá para ver más novedades">
+          <div class="nov-contenedor">
             <article class="nov-tarjeta" id="noticia">
-              <img src="./image/nov918.jpg" alt="Innovación y tecnología en China" class="nov-imagen">
+              <img src="./image/figma/nov-noticia.png" alt="Innovación y tecnología en China" class="nov-imagen">
               <div class="nov-fecha">NOTICIA · 8 SEP 2026</div>
               <h3>La inteligencia artificial, eje de la Expo Digital Global</h3>
               <p>La innovación digital y la IA ocupan un lugar central en la agenda tecnológica china de septiembre.</p>
               <a class="nov-ver-mas" href="https://english.news.cn/20260908/b7795f8c8ff045b7bd4cc296b2992eb0/c.html" target="_blank" rel="noopener noreferrer">Ver más <span aria-hidden="true">→</span></a>
             </article>
             <article class="nov-tarjeta" id="economia">
-              <img src="./image/novoto.jpg" alt="Comercio exterior de China" class="nov-imagen">
+              <img src="./image/figma/nov-economia.png" alt="Comercio exterior de China" class="nov-imagen">
               <div class="nov-fecha">ECONOMÍA · 8 SEP 2026</div>
               <h3>El comercio exterior de China mantiene un fuerte crecimiento</h3>
               <p>El intercambio de bienes creció 17,6 % interanual durante los primeros ocho meses de 2026, según datos oficiales.</p>
               <a class="nov-ver-mas" href="https://english.news.cn/20260908/c9f74a91aef0492796e35b75551bc492/c.html" target="_blank" rel="noopener noreferrer">Ver más <span aria-hidden="true">→</span></a>
             </article>
             <article class="nov-tarjeta" id="educacion">
-              <img src="./image/novlunar.jpg" alt="Educación en China" class="nov-imagen">
+              <img src="./image/figma/nov-educacion.png" alt="Educación en China" class="nov-imagen">
               <div class="nov-fecha">EDUCACIÓN · 8 SEP 2026</div>
               <h3>Nuevo impulso a los materiales educativos de calidad</h3>
               <p>Con el inicio del semestre, China refuerza el desarrollo y la gestión de libros de texto en su sistema educativo.</p>
               <a class="nov-ver-mas" href="https://english.news.cn/20260908/c06b950670e54cfe9ca5daf434569157/c.html" target="_blank" rel="noopener noreferrer">Ver más <span aria-hidden="true">→</span></a>
             </article>
             <article class="nov-tarjeta" id="salud">
-              <img src="./image/gastronomia.jpg" alt="Cobertura médica en China" class="nov-imagen">
+              <img src="./image/figma/nov-salud.png" alt="Cobertura médica en China" class="nov-imagen">
               <div class="nov-fecha">SALUD · 8 SEP 2026</div>
               <h3>Ampliación de la cobertura médica para trabajadores flexibles</h3>
               <p>El país busca extender el seguro médico a trabajadores temporales, migrantes y de nuevas modalidades laborales.</p>
               <a class="nov-ver-mas" href="https://english.news.cn/20260908/a436a3ee03b74b6da26fbb91c7212890/c.html" target="_blank" rel="noopener noreferrer">Ver más <span aria-hidden="true">→</span></a>
             </article>
+          </div>
+          </div>
+          <button class="nov-control nov-control-siguiente" type="button" aria-label="Ver más novedades recientes">›</button>
+          </div>
+          <div class="nov-indicadores" aria-label="Elegir novedad reciente"></div>
         </div>
+
         </section> 
 
         <!-- Información -->
@@ -158,39 +169,39 @@
             <p>Explorá China tradicional, moderna y sus expresiones culturales populares.</p>
         </div>
         <div class="info-contenedor">
-          <section class="info-grupo" aria-labelledby="titulo-tradicional">
-            <div class="info-grupo-cabecera"><p>Raíces y tradiciones</p><h3 id="titulo-tradicional">China Tradicional</h3></div>
+          <details class="info-grupo" id="info-tradicional">
+            <summary><span><small>Raíces y tradiciones</small><strong>China Tradicional</strong></span><b aria-hidden="true">⌄</b></summary>
             <div class="info-grid">
             <article class="info-bloque" id="historia">
-            <div class="info-imagen"><img src="./image/historia.jpg" alt="Historia de China"></div>
-            <div class="info-texto"><a class="info-titulo-enlace" href="./historia.html"><h4>Historia</h4></a><p>Conocé los períodos, dinastías, inventos y legados que formaron una de las civilizaciones más antiguas del mundo.</p><a class="part-boton info-ver-mas" href="./historia.html">Ver más <span aria-hidden="true">→</span></a></div>
+            <div class="info-imagen"><img src="./image/informacion/historia.png" alt="Historia de China"></div>
+            <div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=historia"><h4>Historia</h4></a><p>Conocé los períodos, dinastías, inventos y legados que formaron una de las civilizaciones más antiguas del mundo.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=historia">Ver más <span aria-hidden="true">→</span></a></div>
             </article>
             <article class="info-bloque" id="cultura">
-            <div class="info-imagen"><img src="./image/arte.jpg" alt="Cultura china"></div>
-            <div class="info-texto"><a class="info-titulo-enlace" href="./cultura.html"><h4>Cultura</h4></a><p>Descubrí arte, caligrafía, gastronomía, festivales y tradiciones que siguen dando vida a la identidad china.</p><a class="part-boton info-ver-mas" href="./cultura.html">Ver más <span aria-hidden="true">→</span></a></div>
+            <div class="info-imagen"><img src="./image/informacion/cultura.png" alt="Cultura china"></div>
+            <div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=cultura"><h4>Cultura</h4></a><p>Descubrí arte, caligrafía, gastronomía, festivales y tradiciones que siguen dando vida a la identidad china.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=cultura">Ver más <span aria-hidden="true">→</span></a></div>
             </article>
             <article class="info-bloque" id="festivales">
-            <div class="info-imagen"><img src="./image/cphoto3.jpg" alt="Festival tradicional chino"></div>
-            <div class="info-texto"><a class="info-titulo-enlace" href="./festivales.html"><h4>Festivales</h4></a><p>Conocé las celebraciones que reúnen a familias y comunidades a lo largo del calendario tradicional chino.</p><a class="part-boton info-ver-mas" href="./festivales.html">Ver más <span aria-hidden="true">→</span></a></div>
+            <div class="info-imagen"><img src="./image/informacion/festivales.png" alt="Festival tradicional chino"></div>
+            <div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=festivales"><h4>Festivales</h4></a><p>Conocé las celebraciones que reúnen a familias y comunidades a lo largo del calendario tradicional chino.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=festivales">Ver más <span aria-hidden="true">→</span></a></div>
             </article>
             </div>
-          </section>
-          <section class="info-grupo" aria-labelledby="titulo-moderna">
-            <div class="info-grupo-cabecera"><p>Innovación y vida contemporánea</p><h3 id="titulo-moderna">China Moderna</h3></div>
+          </details>
+          <details class="info-grupo" id="info-moderna">
+            <summary><span><small>Innovación y vida contemporánea</small><strong>China Moderna</strong></span><b aria-hidden="true">⌄</b></summary>
             <div class="info-grid">
-            <article class="info-bloque" id="info-economia"><div class="info-imagen"><img src="./image/novoto.jpg" alt="Economía de China"></div><div class="info-texto"><a class="info-titulo-enlace" href="./economia.html"><h4>Economía</h4></a><p>Conocé las transformaciones económicas, la innovación y los vínculos comerciales que conectan a China con el mundo.</p><a class="part-boton info-ver-mas" href="./economia.html">Ver más <span aria-hidden="true">→</span></a></div></article>
-            <article class="info-bloque" id="gastronomia"><div class="info-imagen"><img src="./image/gastronomia.jpg" alt="Gastronomía china"></div><div class="info-texto"><a class="info-titulo-enlace" href="./gastronomia.html"><h4>Gastronomía</h4></a><p>Descubrí sabores, ingredientes y técnicas que hacen de la cocina china una tradición viva y diversa.</p><a class="part-boton info-ver-mas" href="./gastronomia.html">Ver más <span aria-hidden="true">→</span></a></div></article>
-            <article class="info-bloque" id="turismo"><div class="info-imagen"><img src="./image/cphoto2.jpg" alt="Turismo en China"></div><div class="info-texto"><a class="info-titulo-enlace" href="./Lcont-Websiteurismo.html"><h4>Turismo</h4></a><p>Recorré paisajes, ciudades y patrimonios que muestran la diversidad geográfica y cultural de China.</p><a class="part-boton info-ver-mas" href="./Lcont-Websiteurismo.html">Ver más <span aria-hidden="true">→</span></a></div></article>
+            <article class="info-bloque" id="info-economia"><div class="info-imagen"><img src="./image/informacion/economia.png" alt="Economía de China"></div><div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=economia"><h4>Economía</h4></a><p>Conocé las transformaciones económicas, la innovación y los vínculos comerciales que conectan a China con el mundo.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=economia">Ver más <span aria-hidden="true">→</span></a></div></article>
+            <article class="info-bloque" id="gastronomia"><div class="info-imagen"><img src="./image/informacion/gastronomia.png" alt="Gastronomía china"></div><div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=gastronomia"><h4>Gastronomía</h4></a><p>Descubrí sabores, ingredientes y técnicas que hacen de la cocina china una tradición viva y diversa.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=gastronomia">Ver más <span aria-hidden="true">→</span></a></div></article>
+            <article class="info-bloque" id="turismo"><div class="info-imagen"><img src="./image/informacion/turismo.png" alt="Turismo en China"></div><div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=turismo"><h4>Turismo</h4></a><p>Recorré paisajes, ciudades y patrimonios que muestran la diversidad geográfica y cultural de China.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=turismo">Ver más <span aria-hidden="true">→</span></a></div></article>
             </div>
-          </section>
-          <section class="info-grupo" aria-labelledby="titulo-popular">
-            <div class="info-grupo-cabecera"><p>Entretenimiento y tendencias</p><h3 id="titulo-popular">Culturas Populares</h3></div>
+          </details>
+          <details class="info-grupo" id="info-popular">
+            <summary><span><small>Entretenimiento y tendencias</small><strong>Culturas Populares</strong></span><b aria-hidden="true">⌄</b></summary>
             <div class="info-grid">
-            <article class="info-bloque" id="celebridades"><div class="info-imagen"><img src="./image/cphoto1.jpg" alt="Celebridades chinas"></div><div class="info-texto"><a class="info-titulo-enlace" href="./celebridades.html"><h4>Celebridades</h4></a><p>Conocé artistas, deportistas y figuras públicas que marcan tendencias dentro y fuera de China.</p><a class="part-boton info-ver-mas" href="./celebridades.html">Ver más <span aria-hidden="true">→</span></a></div></article>
-            <article class="info-bloque" id="programas"><div class="info-imagen"><img src="./image/novlunar.jpg" alt="Programas de entretenimiento chino"></div><div class="info-texto"><a class="info-titulo-enlace" href="./programas.html"><h4>Programas</h4></a><p>Explorá concursos, realities y formatos de entretenimiento que conectan a millones de espectadores.</p><a class="part-boton info-ver-mas" href="./programas.html">Ver más <span aria-hidden="true">→</span></a></div></article>
-            <article class="info-bloque" id="cine-tv"><div class="info-imagen"><img src="./image/arte.jpg" alt="Cine y televisión de China"></div><div class="info-texto"><a class="info-titulo-enlace" href="./cine-tv.html"><h4>Cine y TV</h4></a><p>Descubrí historias, géneros y producciones que llevan relatos chinos a pantallas de todo el mundo.</p><a class="part-boton info-ver-mas" href="./cine-tv.html">Ver más <span aria-hidden="true">→</span></a></div></article>
+            <article class="info-bloque" id="celebridades"><div class="info-imagen"><img src="./image/informacion/celebridades.png" alt="Celebridades chinas"></div><div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=celebridades"><h4>Celebridades</h4></a><p>Conocé artistas, deportistas y figuras públicas que marcan tendencias dentro y fuera de China.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=celebridades">Ver más <span aria-hidden="true">→</span></a></div></article>
+            <article class="info-bloque" id="programas"><div class="info-imagen"><img src="./image/informacion/programas.png" alt="Programas de entretenimiento chino"></div><div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=programas"><h4>Programas</h4></a><p>Explorá concursos, realities y formatos de entretenimiento que conectan a millones de espectadores.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=programas">Ver más <span aria-hidden="true">→</span></a></div></article>
+            <article class="info-bloque" id="cine-tv"><div class="info-imagen"><img src="./image/informacion/cine-tv.png" alt="Cine y televisión de China"></div><div class="info-texto"><a class="info-titulo-enlace" href="./articulo-contenido.html?tema=cine-tv"><h4>Cine y TV</h4></a><p>Descubrí historias, géneros y producciones que llevan relatos chinos a pantallas de todo el mundo.</p><a class="part-boton info-ver-mas" href="./articulo-contenido.html?tema=cine-tv">Ver más <span aria-hidden="true">→</span></a></div></article>
             </div>
-          </section>
+          </details>
         </div>
         </section>
 
@@ -207,24 +218,17 @@
             <div class="part-icono">🤝</div>
             <h3>Voluntariado</h3>
             <p>Ayuda en eventos, talleres y actividades culturales. Contribuye con tu tiempo y conoce gente increíble en el camino.</p>
-            <a href="#unete" class="part-boton">Únete Ahora →</a>
+            <a href="./articulo-contenido.html?tema=voluntariado" class="part-boton">Ver más →</a>
             </div>
 
-            <!--Nuestros Departamentos-->
-            <div class="part-tarjeta" id="departamentos">
-            <div class="part-icono">🏢</div>
-            <h3>Nuestros Departamentos</h3>
-            <p>Conoce las distintas áreas de trabajo y descubre dónde encaja mejor tu talento e intereses.</p>
-            <a href="#departamentos" class="part-boton">Veamos →</a>
+            <!--Cómo participar-->
+            <div class="part-tarjeta" id="como-participar">
+            <div class="part-icono">✨</div>
+            <h3>Cómo participar</h3>
+            <p>Elegí la propuesta que más te interese: asistí a actividades, compartí contenidos o sumate como voluntario a nuestros equipos.</p>
+            <a href="./articulo-contenido.html?tema=participacion" class="part-boton">Conocé las opciones →</a>
             </div>
 
-            <!--Origen de la ONG-->
-            <div class="part-tarjeta" id="origen">
-            <div class="part-icono">🌱</div>
-            <h3>Origen de la ONG</h3>
-            <p>Conoce cómo nació LongCont, nuestra historia, misión y el propósito que nos une en este proyecto cultural.</p>
-            <a href="#origen" class="part-boton">Sobre Nosotros →</a>
-            </div>
         </div>
         </section>
         
@@ -256,6 +260,14 @@
             </div>
             </div>
         </div>
+        <article id="origen-ong" class="sobre-origen">
+            <div class="sobre-origen-icono" aria-hidden="true">🌱</div>
+            <div><span class="sobre-origen-etiqueta">NUESTRA HISTORIA</span><h3>Origen de la ONG</h3><p>LongCont nació del deseo de crear un punto de encuentro entre jóvenes y la riqueza de la cultura china. Desde ese primer impulso, construimos actividades, contenidos y vínculos que invitan a aprender, compartir y crecer en comunidad.</p><a class="sobre-origen-boton" href="./articulo-contenido.html?tema=origen">Ver más <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article id="departamentos" class="sobre-origen">
+            <div class="sobre-origen-icono" aria-hidden="true">🏢</div>
+            <div><span class="sobre-origen-etiqueta">NUESTRO EQUIPO</span><h3>Nuestros Departamentos</h3><p>Conocé las áreas que hacen posible LongCont: contenidos, eventos, comunicación y comunidad. Cada equipo aporta ideas y trabajo para acercar la cultura china a más personas.</p><a class="sobre-origen-boton" href="./articulo-contenido.html?tema=departamentos">Conocé los departamentos <span aria-hidden="true">→</span></a></div>
+        </article>
         </section>
     </main>
 
@@ -286,35 +298,33 @@
         </div>
         </div>
 
-        <!-- Columna Navegación -->
+        <!-- Columna Explorar -->
         <div class="foot-col">
-        <h4>Navegación</h4>
+        <h4>Explorá</h4>
         <ul>
-            <li><a href="./index.html">Inicio</a></li>
             <li><a href="./novedades.html">Novedades</a></li>
-            <li><a href="#informacion">Información</a></li>
-            <li><a href="#participacion">Participación</a></li>
+            <li><a href="./informacion/index.html">Información</a></li>
+            <li><a href="./sobre-nosotros.html">Sobre nosotros</a></li>
         </ul>
         </div>
 
-        <!-- Columna Comunidad -->
+        <!-- Columna Participar -->
         <div class="foot-col">
-        <h4>Comunidad</h4>
+        <h4>Participá</h4>
         <ul>
-            <li><a href="#">Voluntariado</a></li>
-            <li><a href="#">Donaciones</a></li>
-            <li><a href="#">Eventos</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="./participacion.html">Cómo participar</a></li>
+            <li><a href="./articulo-contenido.html?tema=voluntariado">Voluntariado</a></li>
+            <li><a href="./participacion.html">Actividades y eventos</a></li>
         </ul>
         </div>
 
-        <!-- Columna Legal -->
+        <!-- Columna LongCont -->
         <div class="foot-col">
-        <h4>Legal</h4>
+        <h4>LongCont</h4>
         <ul>
-            <li><a href="#">Privacidad</a></li>
-            <li><a href="#">Términos</a></li>
-            <li><a href="#">Cookies</a></li>
+            <li><a href="./sobre-nosotros.html#origen-ong">Origen de la ONG</a></li>
+            <li><a href="./sobre-nosotros.html#departamentos">Nuestros departamentos</a></li>
+            <li><a href="mailto:hola@longcont.org">Contacto</a></li>
         </ul>
         </div>
     </div>

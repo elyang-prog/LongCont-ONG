@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="panel.css">
+  <script src="i18n.js" defer></script>
   <script src="panel.js" defer></script>
   <title>Panel de control | LongCont</title>
 </head>
@@ -15,10 +16,8 @@
         <nav class="sidebar-enlaces">
           <a class="activo" href="#inicio-panel"><span aria-hidden="true">⌂</span><b>Inicio</b></a>
           <a href="#calendario-panel"><span aria-hidden="true">▣</span><b>Calendario</b></a>
-          <a href="#perfil-panel"><span aria-hidden="true">◉</span><b>Mi Perfil</b></a>
-          <a href="#chat-panel"><span aria-hidden="true">◌</span><b>Chat</b><em>2</em></a>
-          <a href="#publicaciones-panel"><span aria-hidden="true">✎</span><b>Publicaciones</b></a>
-          <a href="#ajustes-panel"><span aria-hidden="true">⚙</span><b>Ajustes</b></a>
+          <a href="./perfil.html"><span aria-hidden="true">◉</span><b>Mi Perfil</b></a>
+          <a href="./publicaciones.html"><span aria-hidden="true">✎</span><b>Publicaciones</b></a>
         </nav>
       </div>
       <button class="contraer-sidebar" id="contraer-sidebar" type="button" aria-expanded="true"><span aria-hidden="true">←</span><b>Contraer menú</b></button>
@@ -34,7 +33,7 @@
       <div class="panel-cuerpo">
         <section class="bienvenida-panel">
           <p class="etiqueta-panel">PLATAFORMA LONGCONT</p>
-          <h2>Bienvenido a tu espacio cultural</h2>
+          <h2 id="bienvenida-nombre">Bienvenido a tu espacio cultural</h2>
           <p>Gestioná contenidos, descubrí novedades y mantenete conectado con la comunidad de LongCont.</p>
           <a href="./index.html#novedades">Explorar novedades <span aria-hidden="true">→</span></a>
         </section>
@@ -44,40 +43,36 @@
           <div class="tarjetas-acceso">
             <article id="novedades-panel"><div class="icono-acceso">♟</div><h3>Novedades recientes</h3><p>Revisá los últimos anuncios, festivales y eventos culturales locales.</p><a href="./novedades.html">Ingresar <span>→</span></a></article>
             <article id="informacion-panel"><div class="icono-acceso">▤</div><h3>Explorar información</h3><p>Navegá por historia, China moderna y culturas populares.</p><a href="./index.html#info">Ingresar <span>→</span></a></article>
-            <article id="perfil-panel"><div class="icono-acceso">◉</div><h3>Mi perfil</h3><p>Actualizá tus preferencias, foto de perfil y datos de acceso.</p><a href="#perfil-panel">Ingresar <span>→</span></a></article>
-            <article><div class="icono-acceso">✎</div><div class="cabecera-tarjeta"><h3>Publicaciones</h3><small>ADMINISTRADOR</small></div><p>Creá, guardá y revisá contenidos para la comunidad.</p><a href="#publicaciones-panel">Ingresar <span>→</span></a></article>
+            <article id="perfil-panel"><div class="icono-acceso">◉</div><h3>Mi perfil</h3><p>Actualizá tus preferencias, foto de perfil y datos de acceso.</p><a href="./perfil.html">Ingresar <span>→</span></a></article>
+            <article><div class="icono-acceso">✎</div><div class="cabecera-tarjeta"><h3>Publicaciones</h3><small>ADMINISTRADOR</small></div><p>Creá, guardá y revisá contenidos para la comunidad.</p><a href="./publicaciones.html">Ingresar <span>→</span></a></article>
           </div>
         </section>
         <section class="calendario-panel" id="calendario-panel" aria-labelledby="titulo-calendario">
           <div class="encabezado-seccion-panel"><h2 id="titulo-calendario">Calendario</h2><p>Próximas actividades y fechas relevantes de LongCont.</p></div>
           <div class="calendario-contenido">
             <div class="calendario-mes">
-              <div class="calendario-mes-cabecera"><button type="button" aria-label="Mes anterior">‹</button><h3>Septiembre 2026</h3><button type="button" aria-label="Mes siguiente">›</button></div>
+              <div class="calendario-mes-cabecera"><button id="calendario-anterior" type="button" aria-label="Mes anterior">‹</button><h3 id="calendario-mes-actual">Septiembre 2026</h3><button id="calendario-siguiente" type="button" aria-label="Mes siguiente">›</button></div>
               <div class="dias-semana"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div>
-              <div class="dias-calendario"><span class="fuera">31</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span class="evento">8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span class="evento">18</span><span>19</span><span>20</span><span>21</span><span>22</span><span class="evento">23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span class="fuera">1</span><span class="fuera">2</span><span class="fuera">3</span><span class="fuera">4</span></div>
+              <div id="dias-calendario" class="dias-calendario"></div>
             </div>
-            <aside class="proximos-eventos"><h3>Próximos eventos</h3><article><span>08 SEP</span><div><h4>Encuentro de comunidad</h4><p>18:00 · Modalidad online</p></div></article><article><span>18 SEP</span><div><h4>Taller de caligrafía</h4><p>16:00 · Sede LongCont</p></div></article><article><span>23 SEP</span><div><h4>Charla de cultura china</h4><p>19:00 · Modalidad online</p></div></article></aside>
+            <aside class="proximos-eventos"><h3>Eventos del calendario</h3><div id="lista-eventos-calendario"></div><form id="form-evento-calendario" class="form-evento-calendario"><h4>Agregar evento</h4><label>Fecha<input id="fecha-evento" type="date" required></label><label>Título<input id="titulo-evento" maxlength="70" placeholder="Ej.: Taller cultural" required></label><label>Hora<input id="hora-evento" type="time" required></label><label>Detalle<input id="detalle-evento" maxlength="80" placeholder="Ej.: Modalidad online"></label><p id="mensaje-evento-calendario" role="status"></p><button type="submit">Agregar al calendario</button></form></aside>
           </div>
         </section>
         <section class="subir-contenido-panel" id="publicaciones-panel" aria-labelledby="titulo-subir-contenido">
-          <div class="encabezado-seccion-panel"><h2 id="titulo-subir-contenido">Publicaciones</h2><p>Creá, revisá y guardá borradores para las novedades de LongCont. Se almacenan únicamente en este navegador.</p></div>
+          <div class="encabezado-seccion-panel"><h2 id="titulo-subir-contenido">Publicaciones</h2><p>Creá publicaciones desde tu cuenta para las novedades de LongCont.</p></div>
           <div class="editor-contenido">
             <form id="form-subir-contenido" class="form-subir-contenido">
               <div class="campo-subir campo-ancho"><label for="titulo-contenido">Título</label><input id="titulo-contenido" type="text" maxlength="90" placeholder="Ej.: Taller de caligrafía para principiantes" required></div>
               <div class="campo-subir"><label for="categoria-contenido">Categoría</label><select id="categoria-contenido" required><option value="">Elegí una categoría</option><option>Noticia</option><option>Economía</option><option>Educación</option><option>Salud</option><option>Cultura</option></select></div>
               <div class="campo-subir"><label for="imagen-contenido">Imagen (opcional)</label><input id="imagen-contenido" type="file" accept="image/png,image/jpeg,image/webp"></div>
               <div class="campo-subir campo-ancho"><label for="descripcion-contenido">Descripción breve</label><textarea id="descripcion-contenido" rows="5" maxlength="450" placeholder="Escribí un resumen para acompañar la publicación…" required></textarea></div>
-              <p class="nota-subir campo-ancho">Las imágenes de hasta 1 MB se almacenan localmente para esta demo.</p>
+              <p class="nota-subir campo-ancho">Las imágenes de hasta 1 MB se asocian a esta cuenta en este navegador.</p>
               <p id="mensaje-subir-contenido" class="mensaje-subir campo-ancho" role="status" aria-live="polite"></p>
               <button class="btn-publicar" type="submit">Crear publicación <span aria-hidden="true">→</span></button>
             </form>
             <aside class="vista-previa-contenido"><p>VISTA PREVIA</p><div id="preview-imagen" class="preview-imagen">Sin imagen</div><span id="preview-categoria">CATEGORÍA</span><h3 id="preview-titulo">Título de la publicación</h3><p id="preview-descripcion">La descripción breve aparecerá aquí mientras escribís.</p></aside>
           </div>
-          <div class="publicaciones-locales"><div class="encabezado-lista"><h3>Publicaciones guardadas</h3><button id="limpiar-publicaciones" type="button">Limpiar todo</button></div><div id="lista-publicaciones" class="lista-publicaciones"><p class="sin-publicaciones">Aún no hay publicaciones guardadas en este navegador.</p></div></div>
-        </section>
-        <section class="secciones-secundarias" aria-label="Otras secciones del panel">
-          <article id="chat-panel"><h2>Chat</h2><p>Tenés 2 mensajes pendientes. La mensajería se habilitará con cuentas reales.</p></article>
-          <article id="ajustes-panel"><h2>Ajustes</h2><p>Configurá las preferencias de tu cuenta cuando esté conectado el sistema de usuarios.</p></article>
+          <div class="publicaciones-locales"><div class="encabezado-lista"><h3>Mis publicaciones</h3><button id="limpiar-publicaciones" type="button">Eliminar las mías</button></div><div id="lista-publicaciones" class="lista-publicaciones"><p class="sin-publicaciones">Todavía no creaste publicaciones desde esta cuenta.</p></div></div>
         </section>
       </div>
     </main>

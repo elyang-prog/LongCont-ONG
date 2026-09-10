@@ -1,8 +1,16 @@
 const formLogin = document.getElementById('form-login');
-const correoLogin = document.getElementById('correo-login');
+const identificadorLogin = document.getElementById('identificador-login');
 const contrasenaLogin = document.getElementById('contrasena-login');
 const mensajeLogin = document.getElementById('mensaje-login');
 const mostrarContrasena = document.getElementById('mostrar-contrasena');
+
+try {
+  if (JSON.parse(localStorage.getItem('longcont_sesion') || 'null')) {
+    window.location.replace('./panel.html');
+  }
+} catch {
+  localStorage.removeItem('longcont_sesion');
+}
 
 async function cifrarContrasena(contrasena) {
   if (!crypto.subtle) {
@@ -23,18 +31,19 @@ mostrarContrasena.addEventListener('click', () => {
 formLogin.addEventListener('submit', async (event) => {
   event.preventDefault();
   mensajeLogin.classList.remove('exito');
-  if (!correoLogin.validity.valid || contrasenaLogin.value.length < 6) {
-    mensajeLogin.textContent = 'Ingresá un correo válido y una contraseña de al menos 6 caracteres.';
+  if (!identificadorLogin.value.trim() || contrasenaLogin.value.length < 6) {
+    mensajeLogin.textContent = 'Ingresá tu correo o nombre de usuario y una contraseña de al menos 6 caracteres.';
     return;
   }
   const usuarios = JSON.parse(localStorage.getItem('longcont_usuarios') || '[]');
-  const usuario = usuarios.find((item) => item.email === correoLogin.value.trim().toLowerCase());
+  const identificador = identificadorLogin.value.trim().toLowerCase();
+  const usuario = usuarios.find((item) => item.email === identificador || item.username === identificador);
   const contrasenaCifrada = await cifrarContrasena(contrasenaLogin.value);
   if (!usuario || usuario.password !== contrasenaCifrada) {
-    mensajeLogin.textContent = 'El correo o la contraseña no son correctos. Si aún no tenés cuenta, registrate primero.';
+    mensajeLogin.textContent = 'El correo, usuario o contraseña no coinciden. Revisá los datos con los que creaste tu cuenta.';
     return;
   }
-  localStorage.setItem('longcont_sesion', JSON.stringify({ nombre: usuario.nombre, email: usuario.email }));
+  localStorage.setItem('longcont_sesion', JSON.stringify({ nombre: usuario.nombre, username: usuario.username, email: usuario.email }));
   mensajeLogin.classList.add('exito');
   mensajeLogin.textContent = 'Sesión iniciada. Redirigiendo al panel…';
   window.setTimeout(() => { window.location.href = './panel.html'; }, 600);

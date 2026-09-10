@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="login.css">
+  <script src="i18n.js" defer></script>
   <script src="login.js" defer></script>
   <title>Iniciar sesión | LongCont</title>
 </head>
@@ -23,8 +24,8 @@
 
       <form id="form-login" novalidate>
         <div class="campo-login">
-          <label for="correo-login">Correo electrónico</label>
-          <input id="correo-login" name="email" type="email" autocomplete="email" placeholder="ejemplo@longcont.org" required>
+          <label for="identificador-login">Correo electrónico o nombre de usuario</label>
+          <input id="identificador-login" name="identifier" type="text" autocomplete="username" placeholder="correo@dominio.com o longcont_juan" required>
         </div>
         <div class="campo-login">
           <label for="contrasena-login">Contraseña</label>

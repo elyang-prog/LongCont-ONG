@@ -1,0 +1,9 @@
+const sesionPerfil = JSON.parse(localStorage.getItem('longcont_sesion') || 'null');
+if (!sesionPerfil) window.location.replace('./login.html');
+const nombrePerfil = document.getElementById('perfil-nombre');
+const usuarioPerfil = document.getElementById('perfil-usuario');
+const correoPerfil = document.getElementById('perfil-correo');
+nombrePerfil.value = sesionPerfil.nombre; usuarioPerfil.value = sesionPerfil.username || ''; correoPerfil.value = sesionPerfil.email;
+function actualizarVistaPerfil() { document.getElementById('perfil-vista-nombre').textContent = nombrePerfil.value || 'Tu nombre'; document.getElementById('perfil-vista-usuario').textContent = usuarioPerfil.value ? `@${usuarioPerfil.value}` : ''; }
+[nombrePerfil, usuarioPerfil].forEach((campo) => campo.addEventListener('input', actualizarVistaPerfil)); actualizarVistaPerfil();
+document.getElementById('form-perfil').addEventListener('submit', (event) => { event.preventDefault(); const username = usuarioPerfil.value.trim().toLowerCase(); if (!/^[a-z0-9_]{3,24}$/.test(username)) { document.getElementById('mensaje-perfil').textContent = 'Usá entre 3 y 24 letras, números o guiones bajos.'; return; } const usuarios = JSON.parse(localStorage.getItem('longcont_usuarios') || '[]'); if (usuarios.some((usuario) => usuario.email !== sesionPerfil.email && usuario.username === username)) { document.getElementById('mensaje-perfil').textContent = 'Ese nombre de usuario ya está en uso.'; return; } const usuario = usuarios.find((item) => item.email === sesionPerfil.email); if (usuario) { usuario.nombre = nombrePerfil.value.trim(); usuario.username = username; localStorage.setItem('longcont_usuarios', JSON.stringify(usuarios)); } const nuevaSesion = { ...sesionPerfil, nombre: nombrePerfil.value.trim(), username }; localStorage.setItem('longcont_sesion', JSON.stringify(nuevaSesion)); document.getElementById('mensaje-perfil').textContent = 'Cambios guardados correctamente.'; });

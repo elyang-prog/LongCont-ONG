@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="login.css">
   <link rel="stylesheet" href="registro.css">
+  <script src="i18n.js" defer></script>
   <script src="registro.js" defer></script>
   <title>Crear cuenta | LongCont</title>
 </head>
@@ -24,6 +25,7 @@
 
       <form id="form-registro" novalidate>
         <div class="campo-login"><label for="nombre-registro">Nombre completo</label><input id="nombre-registro" name="name" type="text" autocomplete="name" placeholder="Nombre completo" minlength="3" required></div>
+        <div class="campo-login"><label for="usuario-registro">Nombre de usuario</label><input id="usuario-registro" name="username" type="text" autocomplete="username" placeholder="Ej.: longcont_juan" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]+" required><small>Usá letras, números y guiones bajos.</small></div>
         <div class="campo-login"><label for="correo-registro">Correo electrónico</label><input id="correo-registro" name="email" type="email" autocomplete="email" placeholder="ejemplo@longcont.org" required></div>
         <div class="campo-login"><label for="contrasena-registro">Contraseña</label><div class="campo-contrasena"><input id="contrasena-registro" name="password" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres" minlength="8" required><button class="mostrar-registro" type="button" aria-label="Mostrar contraseña" aria-pressed="false"><img src="./image/figma-reg-eye.svg" alt=""></button></div></div>
         <div class="campo-login"><label for="confirmar-registro">Confirmar contraseña</label><div class="campo-contrasena"><input id="confirmar-registro" name="password-confirmation" type="password" autocomplete="new-password" placeholder="Confirmá tu contraseña" minlength="8" required><button class="mostrar-registro" type="button" aria-label="Mostrar contraseña" aria-pressed="false"><img src="./image/figma-reg-eye.svg" alt=""></button></div></div>

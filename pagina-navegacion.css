@@ -1,0 +1,21 @@
+.pagina-menu { display: grid; width: 40px; height: 40px; place-content: center; gap: 4px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; cursor: pointer; }
+.pagina-menu span { display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
+.pagina-menu-overlay { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; overflow-y: auto; background: #f7f3ff; }
+.pagina-menu-overlay[hidden] { display: none; }
+.pagina-menu-barra { position: sticky; top: 0; z-index: 1; display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 30px; background: #291054; }
+.pagina-menu-marca { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-size: 17px; font-weight: 700; text-decoration: none; }
+.pagina-menu-marca img { width: 34px; height: 34px; border-radius: 9px; object-fit: cover; }
+.pagina-menu-barra-acciones { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.pagina-menu-login { padding: 10px 15px; border-radius: 999px; background: #fff; color: #2b0a5b; font-size: 12px; font-weight: 700; text-decoration: none; }
+.pagina-menu-cerrar { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; font-size: 27px; line-height: 1; cursor: pointer; }
+.pagina-menu-contenido { width: min(100%, 1120px); margin: 0 auto; padding: 54px 62px 64px; }
+.pagina-menu-contenido h2 { margin: 0 0 8px; color: #2b0a5b; font-size: 36px; }
+.pagina-menu-contenido > p { max-width: 680px; margin: 0 0 34px; color: #625d6c; font-size: 14px; line-height: 1.55; }
+.pagina-menu-enlaces { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.pagina-menu-grupo h3 { margin: 0 0 12px; color: #2b0a5b; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
+.pagina-menu-grupo a, .pagina-menu-grupo summary { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 8px; padding: 11px 12px; border: 1px solid #e5d8f5; border-radius: 11px; background: #fff; color: #251048; font-size: 13px; text-decoration: none; cursor: pointer; }
+.pagina-menu-grupo details { margin-bottom: 8px; overflow: hidden; border: 1px solid #e5d8f5; border-radius: 11px; background: #fff; }
+.pagina-menu-grupo details summary { margin: 0; border: 0; border-radius: 0; }
+.pagina-menu-grupo details a { margin: 0 8px 7px; width: calc(100% - 16px); border-color: #f0e7f8; }
+.pagina-menu-grupo summary::-webkit-details-marker { display: none; }
+@media (max-width: 760px) { .pagina-menu-barra { padding: 14px 20px; }.pagina-menu-contenido { padding: 40px 24px; }.pagina-menu-contenido h2 { font-size: 30px; }.pagina-menu-enlaces { grid-template-columns: 1fr; gap: 24px; }.pagina-menu-login { padding: 9px 12px; }.pagina-menu-marca { font-size: 15px; } }

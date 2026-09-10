@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css"><link rel="stylesheet" href="publicaciones.css">
+  <script src="i18n.js?v=2" defer></script><script src="publicaciones-gestion.js?v=12" defer></script><script src="publicaciones-carrusel.js?v=9" defer></script>
+  <title>Publicaciones | LongCont</title>
+</head>
+<body>
+  <header class="login-nav"><a class="login-brand" href="./panel.html"><img src="./image/logolcont.jpg" alt=""><span>LongCont</span></a><a class="volver-inicio" href="./panel.html">← Volver al panel</a></header>
+  <main class="publicaciones-main"><section class="publicaciones-cabecera"><p>LONGCONT</p><h1>Crear publicación</h1><span id="autor-publicacion"></span></section>
+    <section class="editor-publicacion"><form id="form-publicacion"><label>Título<input id="titulo-publicacion" maxlength="90" required></label><label>Categoría<select id="categoria-publicacion" required><option value="">Elegí una categoría</option><option>Noticia</option><option>Economía</option><option>Educación</option><option>Salud</option><option>Cultura</option></select></label><label>Imagen (opcional)<input id="imagen-publicacion" type="file" accept="image/png,image/jpeg,image/webp"></label><label>Descripción breve<textarea id="descripcion-publicacion" rows="6" maxlength="450" required></textarea></label><p id="mensaje-publicacion" role="status"></p><button type="submit">Publicar →</button></form>
+    <aside><p>VISTA PREVIA</p><div id="vista-imagen">Sin imagen</div><span id="vista-categoria">CATEGORÍA</span><h2 id="vista-titulo">Título de la publicación</h2><p id="vista-descripcion">La descripción aparecerá aquí.</p></aside></section>
+    <section class="mis-publicaciones"><h2>Mis publicaciones</h2><div id="lista-mis-publicaciones"></div></section>
+  </main>
+</body>
+</html>
